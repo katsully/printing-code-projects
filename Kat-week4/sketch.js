@@ -2,26 +2,29 @@ var r = new Rune({
   container: "#canvas",
   width: 800,
   height: 800,
-  // debug: true
 });
 
-// SHARP
-r.rect(0,0,800,800).fill('hsv', 0, 10, 40);
+// baseHue = 180
+baseHue = 0
+// saturationAndValue = 100
+saturationAndValue = 25
+r.rect(0,0,800,800).fill('hsv', baseHue+180, saturationAndValue, saturationAndValue);
 
 a = 15.5;
 radius = 90;
 var p;
+// saturation = Rune.random(50,75)
+saturation = 100
 for(var i=0; i<360; i++) {
   x = r.width/2 + Math.cos( Rune.radians(i) ) *radius*2.5;
   //The exponent a controls the shape of the curve
   y = r.height/2+ Math.sin( Rune.radians(i) ) * Math.pow(Math.sin(Rune.radians(i)/2), a) *radius;
+  valueStroke = 55
+  valueFill = 40
+  // valueStroke = valueFill = 90
   if (i==0) {
-    // p = r.path(200, 300).fill('hsv', 0, 100, 55).strokeWidth(4);
-    p = r.path(200, 300).fill('hsv', 0, 70, 40).strokeWidth(4).stroke('hsv', 0, 100, 55);
+    p = r.path(200, 300).fill('hsv', baseHue, saturation, valueFill).strokeWidth(4).stroke('hsv', baseHue, saturation, valueStroke);
   } else {
-  //ellipse(x,y, 10,10);
-  //point(x,y);
-  // vertex(x,y);
     p.lineTo(y-400,x-500);
   }
 }
@@ -41,29 +44,15 @@ p5.move(300,900);
 p6.move(400,850);
 p7.move(200,500);
 
-function fuzzyCircle(x,y,radius){
-  var p = r.polygon(x,y).fill('hsv', 0, 100, 75);
-  var angle = 360/30;
-  for(var i=0; i<90; i++){
-    // radius = i%2==0 ? Rune.random(radius-10,radius-5) : Rune.random(radius+5,radius+10)
-    var x = Math.cos(Rune.radians(i * angle)) * radius;
-    var y = Math.sin(Rune.radians(i * angle)) * radius;
-    p.lineTo(x,y);
-  }
-}
-
 drawCircles(250, 250, 175, 8)
-// var x = 250
-// var y = 250
-// var radius = 200
-// var level = 9
+
 function drawCircles(x, y, radius, level){
-  saturation = Math.round(Rune.random(10,80))
+  // saturation = Math.round(Rune.random(10,80))
   value = Rune.random(45,85)
-  r.ellipse(x, y, radius*.75, radius*.75).fill('hsv', 0, 100, value, .5).stroke('hsv', 0, 100, value, .5);
-  // fuzzyCircle(x,y,radius*0.75);
-  r.ellipse(x-15, y-20, radius*.75, radius*.75).fill('hsv', 0, 100, value, .5).stroke('hsv', 0, 100, value, .5);
-  r.ellipse(x-45, y-40, radius*.75, radius*.75).fill('hsv', 0, 100, value, .5).stroke('hsv', 0, 100, value, .5);
+  // value = 90
+  r.ellipse(x, y, radius*.75, radius*.75).fill('hsv', baseHue, saturation, value, .5).stroke('hsv', baseHue, saturation, value, .5);
+  r.ellipse(x-15, y-20, radius*.75, radius*.75).fill('hsv', baseHue, saturation, value, .5).stroke('hsv', baseHue, saturation, value, .5);
+  r.ellipse(x-45, y-40, radius*.75, radius*.75).fill('hsv', baseHue, saturation, value, .5).stroke('hsv', baseHue, saturation, value, .5);
 
   if (level > 1) {
     level = level - 1;
@@ -77,6 +66,5 @@ function drawCircles(x, y, radius, level){
     }
   }
 }
-
 
 r.draw();
