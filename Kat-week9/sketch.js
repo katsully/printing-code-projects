@@ -12,14 +12,13 @@ var darkOrange = new Rune.Color(255,140,0, 0.7);
 var blue = new Rune.Color(47,127,247, 0.8);
 var white = new Rune.Color(255);
 var darkBlue =  new Rune.Color(0,51,153, 0.8);
-// 0, 191, 
-var grey = new Rune.Color(180);
+var skyBlue = new Rune.Color(0, 191, 255);
+var grey = new Rune.Color(195, 0.8);
 
-colors = [teal, darkOrange, blue, white, darkBlue, grey];
+colors = [teal, darkOrange, blue, white, darkBlue, skyBlue, grey, white];
 
 
-for (var a=0; a<6; a++) {
-	console.log(a);
+for (var a=0; a<12; a++) {
 	// var loc = new Rune.Vector(r.width/2 + 100, 275);
 	var loc = new Rune.Vector(Rune.random(r.width), Rune.random(r.height));
 	var shape = r.path(loc.x, loc.y).fill(colors[Math.floor(Math.random() * colors.length)]).stroke(false);
@@ -30,10 +29,12 @@ for (var a=0; a<6; a++) {
 	var minLength = 25;
 	// var minLength = Rune.random(15, 40);
 	// var maxLength = 60;
-	maxLength = minLength + 35;
+	// maxLength = minLength + 35;
+	maxLength = minLength + Rune.random(35, 45);
+	var increase = Rune.random(5);
 	var group = new Rune.Group(loc.x, loc.y);
 
-	for (var i=0; i<48; i++) {
+	for (var i=0; i<42; i++) {
 		for(var j = startingPoint; j < arc; j++) {
 			radius = j%2==0 ? minLength : maxLength;
 			var x = Math.cos(Rune.radians(j * spacing)) * radius;
@@ -52,15 +53,14 @@ for (var a=0; a<6; a++) {
 		var shape = r.path(loc.x, loc.y).fill(colors[Math.floor(Math.random() * colors.length)]).stroke(false);
 		startingPoint = Math.round(Rune.random(points) - 5);
 		arc = Math.round(Rune.random(startingPoint, startingPoint + 25));
-		maxLength += Rune.random(4);
-		if(i % 8 == 0 && i != 0) {
-			minLength += 5;
+		maxLength += increase;
+		if(i % 7 == 0 && i != 0) {
+			minLength += increase+2;
 			//maxLength += 5;
-			points += 10;
+			points += increase * 2;
 			spacing = 360/points;
 		}
 	}
 }
-
 
 r.draw();
