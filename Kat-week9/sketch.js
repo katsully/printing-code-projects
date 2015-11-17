@@ -22,27 +22,14 @@ var startingPoint = 0;
 var arc = 12;
 var minLength = 25;
 var maxLength = 60;
-var radius = 25;
 var group = new Rune.Group(loc.x, loc.y);
-var x1,y1,x2,y2,x3,y3;
+
 for (var i=0; i<1; i++) {
-	var color = colors[Math.floor(Math.random() * colors.length)];
 	for(var j = startingPoint; j < arc; j++) {
-		if(j == 0) {
-			x1 = loc.x + Math.cos(Rune.radians(j * spacing)) * radius;
-			y1 = loc.y + Math.sin(Rune.radians(j * spacing)) * radius;
-		} else if(j % 3 == 1) {
-			x2 = loc.x + Math.cos(Rune.radians(j * spacing)) * (radius+ 35);
-			y2 = loc.y + Math.sin(Rune.radians(j * spacing)) * (radius+35);
-		} else {
-			x3 = loc.x + Math.cos(Rune.radians(j * spacing)) * radius;
-			y3 = loc.y + Math.sin(Rune.radians(j * spacing)) * radius;			
-			r.triangle(x1,y1,x2,y2,x3,y3).fill(color);
-			x1 = x3;
-			y1 = y3;
-		}
-		// shape.lineTo(x, y);
-		
+		radius = j%2==0 ? minLength : maxLength;
+		var x = Math.cos(Rune.radians(j * spacing)) * radius;
+		var y = Math.sin(Rune.radians(j * spacing)) * radius;
+		shape.lineTo(x, y);
 	}
 	var shape = r.path(loc.x, loc.y).stroke(colors[Math.floor(Math.random() * colors.length)]);
 	startingPoint = Math.round(Rune.random(points) - 5);
