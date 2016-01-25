@@ -3,7 +3,6 @@ var r = new Rune({
   width: 1000,
   height: 800,
 });
-// r.rect(0,0,1000,800).fill(25);
 
 var triangle1 = r.triangle(100,350,150,300,175,400).fill(255,0,0);
 var triangle2 = triangle1.copy();
