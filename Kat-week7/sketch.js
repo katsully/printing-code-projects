@@ -9,17 +9,17 @@ r.rect(200, 150, 40, 230).fill(255).stroke(0).strokeWidth(3);
 r.triangle(200, 150, 240, 150, 220, 100).fill(255).stroke(0).strokeWidth(3);
 
 // ~~~~~~~~~~~~~~DESIGN T~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-var designT = r.group();
-r.rect(300,100,200,40, designT).fill(255).stroke(0).strokeWidth(3);
-for(var i=310; i<500; i+=20){
-	r.line(i,100,i,110, designT).stroke(0);
-	r.text((i-310)/20, i-2, 120, designT).fontSize(10).stroke(0);
-}
-r.rect(380,140,40,240, designT).fill(255).stroke(0).strokeWidth(3);
-for(var j=150; j<380; j+=20){
-	r.line(380,j,390,j, designT).stroke(0);
-	r.text((j-150)/20, 395, j+2, designT).fontSize(10).stroke(0);
-}
+// var designT = r.group();
+// r.rect(300,100,200,40, designT).fill(255).stroke(0).strokeWidth(3);
+// for(var i=310; i<500; i+=20){
+// 	r.line(i,100,i,110, designT).stroke(0);
+// 	r.text((i-310)/20, i-2, 120, designT).fontSize(10).stroke(0);
+// }
+// r.rect(380,140,40,240, designT).fill(255).stroke(0).strokeWidth(3);
+// for(var j=150; j<380; j+=20){
+// 	r.line(380,j,390,j, designT).stroke(0);
+// 	r.text((j-150)/20, 395, j+2, designT).fontSize(10).stroke(0);
+// }
 
 // ~~~~~~~~~~~~~DESIGN P~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 var designP = r.group();
@@ -63,15 +63,15 @@ for(var j = 0; j < points; j++) {
 shape.rotate(-86, 590, 150, true).move(-25, -3);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~CODE I~~~~~~~~~~~~~~~~~~~~
-// codeI = r.group()
-// code = [' ', '0', '1']
-// for (var i=100; i<380; i+=10){
-// 	var string = "";
-// 	for(var j=0; j<8; j++) {
-// 		 string += code[Math.floor(Math.random() * code.length)];
-// 	}
-// 	r.text(string, 190, i, codeI);
-// }
+codeI = r.group()
+code = [' ', '0', '1']
+for (var i=100; i<380; i+=10){
+	var string = "";
+	for(var j=0; j<8; j++) {
+		 string += code[Math.floor(Math.random() * code.length)];
+	}
+	r.text(string, 190, i, codeI);
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~CODE T~~~~~~~~~~~~~~~~~~~~~~
 // var codeT = r.group(300,110);
@@ -245,8 +245,8 @@ shape.rotate(-86, 590, 150, true).move(-25, -3);
 // r.rect(380,200,40,80).fill('hsv', 300, 10, 86.7);
 // r.line(400,280,400,380).strokeWidth(4).stroke(120);
 // r.line(380,220,420,220).strokeWidth(3).stroke('hsv', 300, 100, 25);
-// r.line(380,240,420,240).strokeWidth(3).stroke('hsv', 300, 75, 35);;
-// r.line(380,260,420,260).strokeWidth(3).stroke('hsv', 300, 50, 45);;
+// r.line(380,240,420,240).strokeWidth(3).stroke('hsv', 300, 75, 35);
+// r.line(380,260,420,260).strokeWidth(3).stroke('hsv', 300, 50, 45);
 
  
 r.draw();
