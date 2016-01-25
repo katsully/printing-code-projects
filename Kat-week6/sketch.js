@@ -2,7 +2,7 @@ var r = new Rune({
   container: "#canvas",
   width: 800,
   height: 1200,
-  // debug: true
+  debug: false
 });
 
 r.rect(0,0,r.width,r.height).fill(25,25,112).stroke(false);
@@ -55,8 +55,6 @@ var text = r.text("Le Petit Prince", 0, 75).fontSize(100);
 grid.add(text,1,3);
 
 grid.add(group1,1,6);
-// grid.add(line,1,6)
-// r.line(Math.round(group1.parent.vars.x), Math.round(group1.parent.vars.y), r.width, r.height);
 var group2 = group1.copy();
 grid.add(group2,3,5);
 var group3 = group2.copy();
