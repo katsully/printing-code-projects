@@ -5,8 +5,8 @@ var r = new Rune({
 });
 
 // ~~~~~~~~~~~~~~DESIGN I~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-r.rect(200, 150, 40, 230).fill(255).stroke(0).strokeWidth(3);
-r.triangle(200, 150, 240, 150, 220, 100).fill(255).stroke(0).strokeWidth(3);
+// r.rect(200, 150, 40, 230).fill(255).stroke(0).strokeWidth(3);
+// r.triangle(200, 150, 240, 150, 220, 100).fill(255).stroke(0).strokeWidth(3);
 
 // ~~~~~~~~~~~~~~DESIGN T~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // var designT = r.group();
@@ -158,37 +158,37 @@ for (var i=100; i<380; i+=10){
 // }
 
 // ~~~~~~~~~~~~~~~~~~~GENERATIVE T~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// var tileCount = 10;
-// var rectSize = 30;
-// for (var gridY=0; gridY<tileCount; gridY++) {
-//     for (var gridX=0; gridX<tileCount; gridX++) {
+var tileCount = 10;
+var rectSize = 30;
+for (var gridY=0; gridY<tileCount; gridY++) {
+    for (var gridX=0; gridX<tileCount; gridX++) {
        
-//       var posX;
-//       var posY = 280/tileCount * gridY + 90;
-//       if (posY < 140) {
-//         posX = 200/tileCount * gridX + 300
-//       } else {
-//         posX = Rune.random(380, 420);
-//       }
+      var posX;
+      var posY = 280/tileCount * gridY + 90;
+      if (posY < 140) {
+        posX = 200/tileCount * gridX + 300
+      } else {
+        posX = Rune.random(380, 420);
+      }
  
-//       var shiftX1 = 437/50 * Rune.random(-1, 1);
-//       var shiftY1 = 529/50 * Rune.random(-1, 1);
-//       var shiftX2 = 437/50 * Rune.random(-1, 1);
-//       var shiftY2 = 529/50 * Rune.random(-1, 1);
-//       var shiftX3 = 437/50 * Rune.random(-1, 1);
-//       var shiftY3 = 529/50 * Rune.random(-1, 1);
-//       var shiftX4 = 437/50 * Rune.random(-1, 1);
-//       var shiftY4 = 529/50 * Rune.random(-1, 1);
+      var shiftX1 = 437/50 * Rune.random(-1, 1);
+      var shiftY1 = 529/50 * Rune.random(-1, 1);
+      var shiftX2 = 437/50 * Rune.random(-1, 1);
+      var shiftY2 = 529/50 * Rune.random(-1, 1);
+      var shiftX3 = 437/50 * Rune.random(-1, 1);
+      var shiftY3 = 529/50 * Rune.random(-1, 1);
+      var shiftX4 = 437/50 * Rune.random(-1, 1);
+      var shiftY4 = 529/50 * Rune.random(-1, 1);
       
-//       var shape = r.polygon();
-//       shape.lineTo(posX+shiftX1, posY+shiftY1);
-//       shape.lineTo(posX+rectSize+shiftX2, posY+shiftY2);
-//       shape.lineTo(posX+rectSize+shiftX3, posY+rectSize+shiftY3);
-//       shape.lineTo(posX+shiftX4, posY+rectSize+shiftY4);
-//     shape.stroke(false)
-//       shape.fill('hsv', 300, Rune.random(100), Rune.random(10,50), Rune.random(.3, .7));  
-// }    
-//   }
+      var shape = r.polygon();
+      shape.lineTo(posX+shiftX1, posY+shiftY1);
+      shape.lineTo(posX+rectSize+shiftX2, posY+shiftY2);
+      shape.lineTo(posX+rectSize+shiftX3, posY+rectSize+shiftY3);
+      shape.lineTo(posX+shiftX4, posY+rectSize+shiftY4);
+    shape.stroke(false)
+      shape.fill('hsv', 300, Rune.random(100), Rune.random(10,50), Rune.random(.3, .7));  
+}    
+  }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~GENERATIVE P~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // var generativeP = r.group();
