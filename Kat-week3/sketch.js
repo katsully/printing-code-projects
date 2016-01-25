@@ -2,14 +2,13 @@ var r = new Rune({
   container: "#canvas",
   width: 800,
   height: 800,
-  // debug: true
+  debug: false
 });
 
 // SHARP
 r.rect(0,0,400,800).fill(0);
 
 var angle = 360/30
-// radius = 150
 var radius = 0;
 var p = r.polygon(200,350).fill(255);
 for(var i=0; i<30; i++) {
